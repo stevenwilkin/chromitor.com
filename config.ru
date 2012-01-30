@@ -1,3 +1,7 @@
+require './lib/no_www'
+
+use NoWWW
+
 use Rack::Static, :urls => ['/css', '/img'], :root => '.'
 
 run lambda { |env|
