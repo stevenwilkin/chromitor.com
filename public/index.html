@@ -16,7 +16,7 @@
 				<div class="container">
 					<a class="brand" href="/">Chromitor</a>
 					<ul class="nav">
-						<li><a href="/">Download</a></li>
+						<li><a class="download" href="http://dl.dropbox.com/u/5208814/chromitor.zip">Download</a></li>
 						<li><a href="http://github.com/stevenwilkin/chromitor">Source</a></li>
 						<li><a href="http://twitter.com/stevebiscuit">Twitter</a></li>
 					</ul>
@@ -40,7 +40,7 @@
 					</p>
 				</div>
 				<div class="row">
-					<a href="/" class="btn primary large">Get started for free now</a>
+					<a href="http://dl.dropbox.com/u/5208814/chromitor.zip" class="download btn primary large">Get started for free now</a>
 				</div>
 			</div>
 
@@ -63,6 +63,20 @@
 				ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
 				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 			})();
+
+			var links = document.getElementsByClassName('download');
+			var tracker = function() {
+				_gaq.push(['_trackEvent', 'Clicks', 'Downloads', 'chromitor.zip']);
+			};
+			for(var i = 0, len = links.length; i < len; i++) {
+				var link = links[i];
+				if(link.addEventListener) {
+					link.addEventListener('click', tracker, true);
+				} else if (link.attachEvent) {
+					link.attachEvent('onclick', tracker);
+				}
+
+			}
 		</script>
 	</body>
 </html>
